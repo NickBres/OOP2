@@ -13,7 +13,10 @@ public class Ex2_1 {
 
     public static void main(String[] args) {
         long startTime, endTime;
-        String fileNames[] = createTextFiles(1000, 100, 10);
+        int numberOfFiles = 1000;
+        int maxNumberOfLines = 100;
+        String fileNames[] = createTextFiles(numberOfFiles, 100, maxNumberOfLines);
+        System.out.println("Checking " + numberOfFiles + " files with " + maxNumberOfLines + " maximum lines each:");
 
         System.out.println("--------------------------------------------");
         startTime = System.currentTimeMillis();
@@ -131,9 +134,9 @@ public class Ex2_1 {
 
     /**
      * Creates text files with random amount of lines
-     * @param n
-     * @param seed
-     * @param bound
+     * @param n  number of files
+     * @param seed  seed for random
+     * @param bound  max number of lines in a file
      * @return array of file names
      */
     public static String[] createTextFiles(int n, int seed, int bound) {
