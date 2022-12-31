@@ -1,12 +1,13 @@
 package Ex2_2;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+import org.junit.platform.commons.logging.Logger;
+import org.junit.platform.commons.logging.LoggerFactory;
 
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
-import java.util.logging.Logger;
 
 public class Tests {
     public static final Logger logger = LoggerFactory.getLogger(Tests.class);
@@ -24,7 +25,7 @@ public class Tests {
         var sumTask = customExecutor.submit(task);
         final int sum;
         try {
-            sum = sumTask.get(1, TimeUnit.MILLISECONDS);
+            sum = (int) sumTask.get(1, TimeUnit.MILLISECONDS);
         } catch (InterruptedException | ExecutionException | TimeoutException e) {
             throw new RuntimeException(e);
         }
@@ -43,8 +44,8 @@ public class Tests {
         final Double totalPrice;
         final String reversed;
         try {
-            totalPrice = priceTask.get();
-            reversed = reverseTask.get();
+            totalPrice = (Double) priceTask.get();
+            reversed = (String) reverseTask.get();
         } catch (InterruptedException | ExecutionException e) {
             throw new RuntimeException(e);
         }
