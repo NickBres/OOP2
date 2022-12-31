@@ -2,37 +2,36 @@ package Ex2_2;
 
 import java.util.concurrent.*;
 
-public class Task  {
-    private Executor executor;
-    private Future future;
+public class Task<T> implements Comparable<Task<T>>,Callable<T>  {
+    Future<T> future;
+    final Callable<T> supplier;
 
-    public Callable getCallable() {
-        return callable;
+    final TaskType taskType;
+
+
+    public Task(Callable<T> task, TaskType taskType) {
+        this.supplier = task;
+        this.taskType = taskType;
     }
 
-    private final Callable callable;
-
-    public Task(Callable task) {
-        this.callable = task;
+    public static <T> Task<T> createTask(Callable<T> task, TaskType taskType) {
+        return new Task<T>(task,taskType);
     }
 
-    public static Task createTask(Callable task, TaskType taskType) {
-        return switch (taskType){
-            case COMPUTATIONAL -> new Task(task);
-            case IO, OTHER -> new Task(task);
-            default -> throw new RuntimeException("WRONG TYPE");
-        };
+    @Override
+    public int compareTo(Task t1) {
+        return t1.taskType.compareTo(this.taskType);
     }
-
-    public Object get(long num, TimeUnit timeUnit) throws InterruptedException, ExecutionException, TimeoutException{
-        return future.get(num,timeUnit);
+    public  T get(long num, TimeUnit timeUnit) throws InterruptedException, ExecutionException, TimeoutException {
+        return (T) future.get(num,timeUnit);
     }
-    public Object get() throws InterruptedException, ExecutionException{
-        return future.get();
+    public T get() throws InterruptedException, ExecutionException{
+        return (T) future.get();
     }
-
-
-    public void setFuture(Future future) {
+    public T call() throws Exception {
+        return this.supplier.call();
+    }
+    public void setFuture(Future<T> future) {
         this.future = future;
     }
 }

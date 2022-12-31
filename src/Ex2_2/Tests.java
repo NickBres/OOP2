@@ -8,6 +8,7 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
+import java.util.function.Supplier;
 
 public class Tests {
     public static final Logger logger = LoggerFactory.getLogger(Tests.class);
@@ -25,7 +26,7 @@ public class Tests {
         var sumTask = customExecutor.submit(task);
         final int sum;
         try {
-            sum = (int) sumTask.get(1, TimeUnit.MILLISECONDS);
+            sum =  sumTask.get(1, TimeUnit.MILLISECONDS);
         } catch (InterruptedException | ExecutionException | TimeoutException e) {
             throw new RuntimeException(e);
         }
@@ -40,12 +41,12 @@ public class Tests {
         var priceTask = customExecutor.submit(() -> {
             return 1000 * Math.pow(1.02, 5);
         }, TaskType.COMPUTATIONAL);
-        var reverseTask = customExecutor.submit(callable2, TaskType.IO);
+        var reverseTask = customExecutor.submit( callable2, TaskType.IO);
         final Double totalPrice;
         final String reversed;
         try {
-            totalPrice = (Double) priceTask.get();
-            reversed = (String) reverseTask.get();
+            totalPrice = priceTask.get();
+            reversed = reverseTask.get();
         } catch (InterruptedException | ExecutionException e) {
             throw new RuntimeException(e);
         }
