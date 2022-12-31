@@ -4,43 +4,40 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Random;
 import java.util.Scanner;
-import java.util.concurrent.Callable;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
+import java.util.concurrent.*;
 
 public class Ex2_1 {
 
     public static void main(String[] args) {
         long startTime, endTime;
-        int numberOfFiles = 1000;
+        int numberOfFiles = 30;
         int maxNumberOfLines = 100;
         String fileNames[] = createTextFiles(numberOfFiles, 100, maxNumberOfLines);
         System.out.println("Checking " + numberOfFiles + " files with " + maxNumberOfLines + " maximum lines each:");
 
-        System.out.println("--------------------------------------------");
+        System.out.println("---------------------------------------------------------");
         startTime = System.currentTimeMillis();
         System.out.println("Num of lines in all files: " + getNumOfLines(fileNames));
         endTime = System.currentTimeMillis();
         System.out.println("Time: " + (endTime - startTime) + " ms");
-        System.out.println("--------------------------------------------");
+        System.out.println("---------------------------------------------------------");
 
         startTime = System.currentTimeMillis();
         System.out.println("Num of lines in all files using threads: " + getNumOfLinesThreads(fileNames));
         endTime = System.currentTimeMillis();
         System.out.println("Time: " + (endTime - startTime) + " ms");
-        System.out.println("--------------------------------------------");
+        System.out.println("---------------------------------------------------------");
 
         startTime = System.currentTimeMillis();
         System.out.println("Num of lines in all files using threadPool: " + getNumOfLinesThreadPool(fileNames));
         endTime = System.currentTimeMillis();
         System.out.println("Time: " + (endTime - startTime) + " ms");
-        System.out.println("--------------------------------------------");
+        System.out.println("---------------------------------------------------------");
 
         deleteFiles(fileNames);
     }
     /**
-     * Counts the number of lines in all files using ThreadPool
+     * Count the number of lines in all files using ThreadPool
      * @param filesNames
      * @return the number of lines in all files
      */
@@ -48,7 +45,7 @@ public class Ex2_1 {
         int numOfLines = 0;
         int length = filesNames.length;
         ExecutorService threadPool = Executors.newFixedThreadPool(length);
-        Future<Integer> futures[] = new Future[length];
+        Future<Integer> futures[] = new CompletableFuture[length];
         for (int i = 0; i < length; i++) {
             futures[i] = threadPool.submit(new CountLinesWithThreadPool(filesNames[i]));
         }
@@ -219,7 +216,7 @@ class CountLinesWithThreads extends Thread {
     }
 }
 
-class CountLinesWithThreadPool implements Callable {
+class CountLinesWithThreadPool implements Callable<Integer> {
     private int count = 0;
     String name;
 
@@ -249,7 +246,7 @@ class CountLinesWithThreadPool implements Callable {
     }
 
     @Override
-    public Object call() throws Exception {
+    public Integer call() throws Exception {
         countLines(name);
         return this.count;
     }
