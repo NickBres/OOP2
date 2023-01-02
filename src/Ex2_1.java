@@ -10,8 +10,8 @@ public class Ex2_1 {
 
     public static void main(String[] args) {
         long startTime, endTime;
-        int numberOfFiles = 30;
-        int maxNumberOfLines = 100;
+        int numberOfFiles = 1000;
+        int maxNumberOfLines = 999;
         String fileNames[] = createTextFiles(numberOfFiles, 100, maxNumberOfLines);
         System.out.println("Checking " + numberOfFiles + " files with " + maxNumberOfLines + " maximum lines each:");
 
@@ -45,7 +45,7 @@ public class Ex2_1 {
         int numOfLines = 0;
         int length = filesNames.length;
         ExecutorService threadPool = Executors.newFixedThreadPool(length);
-        Future<Integer> futures[] = new CompletableFuture[length];
+        Future<Integer> futures[] = new Future[length];
         for (int i = 0; i < length; i++) {
             futures[i] = threadPool.submit(new CountLinesWithThreadPool(filesNames[i]));
         }
