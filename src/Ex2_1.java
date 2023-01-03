@@ -19,6 +19,8 @@ public class Ex2_1 {
         numberOfFiles = scanner.nextInt();
         System.out.println("Enter maximum number of lines in each file: ");
         maxNumberOfLines = scanner.nextInt();
+
+        System.out.println("Creating files...");
         String fileNames[] = createTextFiles(numberOfFiles, 2407, maxNumberOfLines);
         System.out.println("Checking " + numberOfFiles + " files with " + maxNumberOfLines + " maximum lines each:");
 
