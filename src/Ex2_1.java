@@ -6,13 +6,20 @@ import java.util.Random;
 import java.util.Scanner;
 import java.util.concurrent.*;
 
+
 public class Ex2_1 {
 
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
         long startTime, endTime;
-        int numberOfFiles = 1000;
-        int maxNumberOfLines = 999;
-        String fileNames[] = createTextFiles(numberOfFiles, 100, maxNumberOfLines);
+        int numberOfFiles;
+        int maxNumberOfLines;
+
+        System.out.println("Enter number of files to be created: ");
+        numberOfFiles = scanner.nextInt();
+        System.out.println("Enter maximum number of lines in each file: ");
+        maxNumberOfLines = scanner.nextInt();
+        String fileNames[] = createTextFiles(numberOfFiles, 2407, maxNumberOfLines);
         System.out.println("Checking " + numberOfFiles + " files with " + maxNumberOfLines + " maximum lines each:");
 
         System.out.println("---------------------------------------------------------");

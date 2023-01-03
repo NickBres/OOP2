@@ -6,9 +6,7 @@ public class Task<T> implements Comparable<Task<T>>,Callable<T>  {
     private Future<T> future; // the future object associated with this task
     private final Callable<T> supplier;
 
-    public TaskType getTaskType() {
-        return taskType;
-    }
+
 
     private final TaskType taskType;
 
@@ -77,5 +75,9 @@ public class Task<T> implements Comparable<Task<T>>,Callable<T>  {
      */
     public void setFuture(Future<T> future) {
         this.future = future;
+    }
+
+    public TaskType getTaskType() {
+        return taskType;
     }
 }

@@ -47,7 +47,7 @@ Clone the repo
    git clone https://github.com/NickBres/OOP2.git
    ```
 ### Ex2_1
-In the main function choose the number of files and max number of lines in the file. After that, you can run it and see the results in the terminal. Main will delete created files after it will finish printing the data. Sometimes (for example: when too many files are asked) function may corrupt. To delete files you may use the next commands.
+Run the main function and choose the number of files and max number of lines in the file in terminal. Main will delete created files after it will finish printing the data. Sometimes (for example: when too many files are asked) function may corrupt. To delete files you may use the next commands.
 ```sh
    cd <repository folder>/src
    rm file*
