@@ -28,3 +28,37 @@ CustomExecutor is a custom implementation of an ExecutorService, a class that ma
 
 The Task class is a Callable that can be submitted to an ExecutorService for execution. It has a TaskType that defines the priority of the task and a Future object that is associated with the task. The Task class has a compareTo method that compares the priority of this task to another task, based on the TaskType. It also has a method to set the Future object associated with the task. The Task class has a static factory method to create a new Task object.
 ![image](https://user-images.githubusercontent.com/70432147/210372723-1366698f-e44e-4935-9dda-a30a7f46edb3.png)
+
+### Additional instructions answers:
+
+#### Consider how developers might extend your classes (either by inheritance or by composition) :
+
+Inheritance:
+
+A developer might create a subclass of CustomExecutor to add additional functionality or behavior. For example, they might create a CustomExecutorWithMetrics class that tracks metrics like the number of tasks executed, the average execution time of tasks, etc.
+A developer might create a subclass of Task to add additional functionality or behavior. For example, they might create a TaskWithRetry class that retries the task a certain number of times if it fails, or a TaskWithTimeout class that cancels the task if it takes too long to execute.
+
+Composition:
+
+A developer might use the CustomExecutor class as a field in a new class to provide additional functionality or behavior. For example, they might create a ScheduledTaskExecutor class that schedules tasks to be executed at a certain time or frequency, using the CustomExecutor to execute the tasks.
+A developer might use the Task class as a field in a new class to provide additional functionality or behavior. For example, they might create a TaskGroup class that manages a group of tasks and provides methods to add, remove, and wait for the completion of the tasks.
+
+#### Consider how developers might use your classes, for example sorting Task instances or maintaining instances in hash-based data-structures :
+
+Developers might use the CustomExecutor class to execute a list of tasks concurrently. They could use the submit method to submit the tasks to the CustomExecutor and use the Future object associated with each task to track the progress or results of the task.
+Developers might use the getCurrentMax method of the CustomExecutor class to get the priority of the highest priority task in the queue. This could be useful, for example, to display the current status of the executor to the user or to make decisions about which tasks to submit next.
+
+#### Describe the design and development considerations and provide techniques/patterns you employed :
+
+* Concurrency: The CustomExecutor class uses a ThreadPoolExecutor to manage a pool of threads and execute tasks concurrently. This can help improve the performance of the application by allowing multiple tasks to be executed in parallel.
+* Task priority: The Task class has a TaskType field that defines the priority of the task. The Task class also has a compareTo method that compares the priority of this task to another task, based on the TaskType. This allows the CustomExecutor to prioritize tasks based on their priority and execute the most important tasks first.
+* Task execution tracking: The Task class has a Future field that is associated with the task. This allows developers to track the progress or results of the task using the Future object.
+* Graceful shutdown: The CustomExecutor class has a gracefullyTerminate method that shuts down the executor service cleanly. This can be important to ensure that all tasks have completed and resources have been released properly.
+
+Some design patterns that are used in these classes include:
+* Factory pattern: The Task class has a static factory method (createTask) that creates a new Task object. This can make it easier to create new Task objects and helps to enforce the invariants of the Task class.
+* Comparable interface: The Task class implements the Comparable interface, which allows tasks to be compared to each other based on their priority. This can be useful, for example, when sorting a list of tasks or inserting tasks into a sorted data structure.
+* Executor pattern: The CustomExecutor class uses the Executor pattern to manage a pool of threads and execute tasks concurrently. This can help to improve the performance of the application by allowing tasks to be executed in parallel and abstracting the details of thread management away from the developer.
+
+
+
