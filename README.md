@@ -22,8 +22,9 @@ It is also worth noting that the performance of each method may vary depending o
 ![image](https://user-images.githubusercontent.com/70432147/209985602-db355137-9cc4-44bc-88ea-a632ff7e493e.png)
 
 
-##Ex2_2
+## Ex2_2
 ### Description
 CustomExecutor is a custom implementation of an ExecutorService, a class that manages a pool of threads and executes submitted tasks. It has a priority queue of tasks and uses a ThreadPoolExecutor to execute these tasks. The CustomExecutor class has methods to submit tasks, get the current maximum priority task in the queue, and shut down the ExecutorService gracefully.
 
 The Task class is a Callable that can be submitted to an ExecutorService for execution. It has a TaskType that defines the priority of the task and a Future object that is associated with the task. The Task class has a compareTo method that compares the priority of this task to another task, based on the TaskType. It also has a method to set the Future object associated with the task. The Task class has a static factory method to create a new Task object.
+![image](https://user-images.githubusercontent.com/70432147/210372723-1366698f-e44e-4935-9dda-a30a7f46edb3.png)
