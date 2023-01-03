@@ -27,6 +27,7 @@ Built With:
       <a href="#ex2_1">Ex2_1</a>
       <ul>
         <li><a href="#description">Description</a></li>
+        <li><a href="#tests">Tests</a></li>
         <li><a href="#conclusion">Conclusion</a></li>
       </ul>
     </li>
@@ -66,19 +67,27 @@ The CountLinesWithThreads class is a helper class that extends the Thread class 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+### Tests
+
+Machine : MacBook Air 2020
+
+Chip: Apple M1, 8-cores CPU, 8gb RAM
+
+In most cases, threads are faster. But when we ran too many files ThreadPool stops working, probably because it needs more ram.
+
+![image](https://user-images.githubusercontent.com/70432147/209985244-2379cbad-476f-41f9-8020-b8076bbecd5f.png)
+![image](https://user-images.githubusercontent.com/70432147/209985469-ee284bde-57ca-415d-bd28-9c6363d66c85.png)
+![image](https://user-images.githubusercontent.com/70432147/209985588-03408d43-bdd0-44b3-bc90-4d788eca0b23.png)
+![image](https://user-images.githubusercontent.com/70432147/209985602-db355137-9cc4-44bc-88ea-a632ff7e493e.png)
+![image](https://user-images.githubusercontent.com/70432147/210442278-00270741-215d-41ba-b970-1818bbafaf7a.png)
+![image](https://user-images.githubusercontent.com/70432147/210442431-c374c184-6d26-45c8-83f3-d1420461d9ac.png)
+
 ### Conclusion
 It is difficult to say which method will be faster without knowing the specific details of the system it is running on. In general, using multiple threads or a thread pool to perform tasks concurrently can be faster than doing them sequentially, especially if the tasks can be done in parallel and the system has multiple processors or cores. However, creating and managing threads or a thread pool has overhead, so it may not always be faster to use them.
 
 To determine which method is faster, it is best to measure the actual execution time of each method on the specific system it is running on. In the provided code, the execution time of each method is measured using the System.currentTimeMillis method, which returns the current time in milliseconds. The difference between the start time and end time gives the total execution time of each method.
 
 It is also worth noting that the performance of each method may vary depending on the size and number of the text files being processed. If the text files are very large or there are a very large number of them, using multiple threads or a thread pool may be more beneficial. On the other hand, if the text files are small or there are only a few of them, using multiple threads or a thread pool may not provide much of a performance improvement.
-
-Examples:
-
-![image](https://user-images.githubusercontent.com/70432147/209985244-2379cbad-476f-41f9-8020-b8076bbecd5f.png)
-![image](https://user-images.githubusercontent.com/70432147/209985469-ee284bde-57ca-415d-bd28-9c6363d66c85.png)
-![image](https://user-images.githubusercontent.com/70432147/209985588-03408d43-bdd0-44b3-bc90-4d788eca0b23.png)
-![image](https://user-images.githubusercontent.com/70432147/209985602-db355137-9cc4-44bc-88ea-a632ff7e493e.png)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
