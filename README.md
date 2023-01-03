@@ -70,6 +70,7 @@ The CountLinesWithThreads class is a helper class that extends the Thread class 
 ### Tests
 
 Machine : MacBook Air 2020
+
 Chip: Apple M1, 8-cores CPU, 8gb RAM
 
 In most cases, threads are faster. But when we ran too many files ThreadPool stops working, probably because it needs more ram.
