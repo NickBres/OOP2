@@ -62,7 +62,7 @@ public class CustomExecutor {
             String max = task.getTaskType().toString();
             return max;
         }
-        return "No tasks";
+        return "No tasks in queue";
     }
 
     /**

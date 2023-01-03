@@ -37,7 +37,9 @@ public class Tests {
             StringBuilder sb = new StringBuilder("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
             return sb.reverse().toString();
         };
-        var priceTask = customExecutor.submit(callable1, TaskType.COMPUTATIONAL);
+        var priceTask = customExecutor.submit( () -> {
+            return 1000 * Math.pow(1.02, 5);
+        }, TaskType.COMPUTATIONAL);
         var reverseTask = customExecutor.submit( callable2, TaskType.IO);
         final Double totalPrice;
         final String reversed;
