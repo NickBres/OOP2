@@ -31,7 +31,7 @@ Built With:
       </ul>
     </li>
      <li>
-      <a href="#ex2_2">Ex2_1</a>
+      <a href="#ex2_2">Ex2_2</a>
       <ul>
         <li><a href="#description">Description</a></li>
         <li><a href="#additional-instructions-answers">Additional instructions answers</a></li>
