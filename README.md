@@ -1,4 +1,60 @@
 # OOP2
+<a name="readme-top"></a>
+Authors:
+
+* [Nikita Breslavsky](https://github.com/NickBres)
+* [Chen Dahan](https://github.com/ChenDahan13)
+
+Built With:
+
+* Language: Java
+* JDK: 19.0.1
+* JUnit 5.8.1
+
+
+<!-- TABLE OF CONTENTS -->
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#getting-started">Getting Started</a>
+      <ul>
+        <li><a href="#ex2_1">Ex2_1</a></li>
+        <li><a href="#ex2_2">Ex2_2</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#ex2_1">Ex2_1</a>
+      <ul>
+        <li><a href="#description">Description</a></li>
+        <li><a href="#conclusion">Conclusion</a></li>
+      </ul>
+    </li>
+     <li>
+      <a href="#ex2_2">Ex2_1</a>
+      <ul>
+        <li><a href="#description">Description</a></li>
+        <li><a href="#additional-instructions-answers">Additional instructions answers</a></li>
+      </ul>
+    </li>
+  </ol>
+</details>
+
+## Getting Started
+
+Clone the repo
+   ```sh
+   git clone https://github.com/NickBres/OOP2.git
+   ```
+### Ex2_1
+In the main function choose the number of files and max number of lines in the file. After that, you can run it and see the results in the terminal. Main will delete created files after it will finish printing the data. Sometimes (for example: when too many files are asked) function may corrupt. To delete files you may use the next commands.
+```sh
+   cd <repository folder>/src
+   rm files*
+   ```
+### Ex2_2
+You can see and run the example in the Tests class.
+   
 
 ## Ex2_1
 ### Description
@@ -8,6 +64,7 @@ The CountLinesWithThreads class is a helper class that extends the Thread class 
 
 ![image](https://user-images.githubusercontent.com/70432147/209985784-f0a5c3a8-0363-406a-8653-3e2803af3aac.png)
 
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### Conclusion
 It is difficult to say which method will be faster without knowing the specific details of the system it is running on. In general, using multiple threads or a thread pool to perform tasks concurrently can be faster than doing them sequentially, especially if the tasks can be done in parallel and the system has multiple processors or cores. However, creating and managing threads or a thread pool has overhead, so it may not always be faster to use them.
@@ -15,12 +72,15 @@ It is difficult to say which method will be faster without knowing the specific 
 To determine which method is faster, it is best to measure the actual execution time of each method on the specific system it is running on. In the provided code, the execution time of each method is measured using the System.currentTimeMillis method, which returns the current time in milliseconds. The difference between the start time and end time gives the total execution time of each method.
 
 It is also worth noting that the performance of each method may vary depending on the size and number of the text files being processed. If the text files are very large or there are a very large number of them, using multiple threads or a thread pool may be more beneficial. On the other hand, if the text files are small or there are only a few of them, using multiple threads or a thread pool may not provide much of a performance improvement.
-#### Examples
+
+Examples:
+
 ![image](https://user-images.githubusercontent.com/70432147/209985244-2379cbad-476f-41f9-8020-b8076bbecd5f.png)
 ![image](https://user-images.githubusercontent.com/70432147/209985469-ee284bde-57ca-415d-bd28-9c6363d66c85.png)
 ![image](https://user-images.githubusercontent.com/70432147/209985588-03408d43-bdd0-44b3-bc90-4d788eca0b23.png)
 ![image](https://user-images.githubusercontent.com/70432147/209985602-db355137-9cc4-44bc-88ea-a632ff7e493e.png)
 
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Ex2_2
 ### Description
@@ -28,6 +88,8 @@ CustomExecutor is a custom implementation of an ExecutorService, a class that ma
 
 The Task class is a Callable that can be submitted to an ExecutorService for execution. It has a TaskType that defines the priority of the task and a Future object that is associated with the task. The Task class has a compareTo method that compares the priority of this task to another task, based on the TaskType. It also has a method to set the Future object associated with the task. The Task class has a static factory method to create a new Task object.
 ![image](https://user-images.githubusercontent.com/70432147/210372723-1366698f-e44e-4935-9dda-a30a7f46edb3.png)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### Additional instructions answers:
 
@@ -60,5 +122,6 @@ Some design patterns that are used in these classes include:
 * Comparable interface: The Task class implements the Comparable interface, which allows tasks to be compared to each other based on their priority. This can be useful, for example, when sorting a list of tasks or inserting tasks into a sorted data structure.
 * Executor pattern: The CustomExecutor class uses the Executor pattern to manage a pool of threads and execute tasks concurrently. This can help to improve the performance of the application by allowing tasks to be executed in parallel and abstracting the details of thread management away from the developer.
 
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
