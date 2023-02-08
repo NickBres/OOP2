@@ -5,9 +5,6 @@ import java.util.concurrent.*;
 public class Task<T> implements Comparable<Task<T>>,Callable<T>  {
     private Future<T> future; // the future object associated with this task
     private final Callable<T> supplier;
-
-
-
     private final TaskType taskType;
 
     /**
@@ -45,8 +42,7 @@ public class Task<T> implements Comparable<Task<T>>,Callable<T>  {
      * @return a negative integer, zero, or a positive integer as this object is less than, equal to, or greater than the specified object.
      */
     @Override
-    public int compareTo(Task t1) {
-        return t1.taskType.compareTo(this.taskType);
+    public int compareTo(Task t1) { return this.taskType.compareTo(t1.taskType);
     }
     /**
      * Returns the result of the task and time, throws an exception if the task was not completed successfully.

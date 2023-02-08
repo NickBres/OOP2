@@ -19,7 +19,6 @@ public enum TaskType {
         }
     };
 
-
     private int typePriority;
 
     private TaskType(int priority) {
@@ -31,21 +30,29 @@ public enum TaskType {
     public void setPriority(int priority) {
         if (validatePriority(priority)) this.typePriority = priority;
         else
-            throw new IllegalArgumentException("Priority is not an integer"); }
-        public int getPriorityValue () {
-            return typePriority;
-        }
-        public TaskType getType () {
-            return this;
-        }
-
-/**
- * priority is represented by an integer value, ranging from 1 to 10 * @param priority
- * @return whether the priority is valid or not
- */
-        private static boolean validatePriority (int priority){
-            if (priority < 1 || priority > 10) return false;
-            return true;
-        }
+            throw new IllegalArgumentException("Priority is not an integer");
     }
+
+    public int getPriorityValue() {
+        return typePriority;
+    }
+
+    public TaskType getType() {
+        return this;
+    }
+
+    /**
+     * priority is represented by an integer value, ranging from 1 to 10 * @param priority
+     *
+     * @return whether the priority is valid or not
+     */
+    private static boolean validatePriority(int priority) {
+        if (priority < 1 || priority > 10) return false;
+        return true;
+    }
+
+    public int getTypePriority() {
+        return this.typePriority;
+    }
+}
 

@@ -121,7 +121,7 @@ public class Ex2_1 {
      * Open a file and count the number of lines in it using Scanner
      * @param fileName
      * @return number of lines in the file
-     */
+//     */
     private static int countLines(String fileName) {
         int count = 0;
         try {
@@ -150,8 +150,8 @@ public class Ex2_1 {
         Random rand = new Random(seed);
         for (int i = 0; i < n; i++) {
             int numOfLines = rand.nextInt(bound);
-            filesNames[i] = createTextFile(i);
-            writeToFile(filesNames[i], numOfLines);
+            filesNames[i] = createTextFile(i); //create a file number i and return its name
+            writeToFile(filesNames[i], numOfLines); //write lines to the created file
         }
         return filesNames;
     }
