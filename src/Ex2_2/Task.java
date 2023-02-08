@@ -12,7 +12,7 @@ public class Task<T> implements Comparable<Task<T>>,Callable<T>  {
      * @param task
      * @param taskType
      */
-    public Task(Callable<T> task, TaskType taskType) {
+    private Task(Callable<T> task, TaskType taskType) {
         this.supplier = task;
         this.taskType = taskType;
     }
@@ -21,7 +21,7 @@ public class Task<T> implements Comparable<Task<T>>,Callable<T>  {
      * Creates a task with the given supplier and default task type.
      * @param task
      */
-    public Task(Callable<T> task) {
+    private Task(Callable<T> task) {
         this.supplier = task;
         this.taskType = TaskType.OTHER;
     }
